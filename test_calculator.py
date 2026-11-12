@@ -1,6 +1,6 @@
 import pytest
 
-from calculator import add, divide
+from calculator import add, broken_total, divide
 
 
 def test_add():
@@ -22,3 +22,7 @@ def test_divide_by_zero_returns_none():
 def test_divide_wrong_type_raises():
     with pytest.raises(TypeError):
         divide("6", 3)
+
+
+def test_broken_total_sums_values():
+    assert broken_total([1, 2, 3]) == 6

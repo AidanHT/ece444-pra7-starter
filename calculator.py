@@ -16,5 +16,5 @@ def divide(a, b):
         return None
 
 
-def broken_total():
-    return missing_total
+def broken_total(values):
+    return sum(values)
