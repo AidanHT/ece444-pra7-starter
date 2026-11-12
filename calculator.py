@@ -7,3 +7,10 @@ def record(value, history=None):
         history = []
     history.append(value)
     return history
+
+
+def divide(a, b):
+    try:
+        return a / b
+    except ZeroDivisionError:
+        return None
