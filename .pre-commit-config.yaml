@@ -1,7 +1,12 @@
+# Hooks run on every `git commit` after `python -m pre_commit install`.
+# Git hooks are local only: they are not pushed, and they can be skipped, so CI
+# runs the same checks again.
 repos:
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.17.4
+  - repo: https://github.com/astral-sh/ruff-pre-commit  # pre-commit installs its own Ruff
+    rev: v0.17.4  # keep in sync with ruff==0.17.4 in requirements-dev.txt
     hooks:
-      - id: ruff-check
+      - id: ruff-check  # lint; skip only this hook with SKIP=ruff-check
+        # --fix applies safe fixes; --exit-non-zero-on-fix still fails the commit
+        # so you review the change and stage it again
         args: [--fix, --exit-non-zero-on-fix]
-      - id: ruff-format
+      - id: ruff-format  # formats files in place
