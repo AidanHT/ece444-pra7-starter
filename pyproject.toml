@@ -1,7 +1,11 @@
-[tool.ruff]
-target-version = "py315"
-line-length = 88
+# Ruff reads this file automatically, so local runs, pre-commit and CI
+# all use the same rules.
 
-[tool.ruff.lint]
+[tool.ruff]  # shared by `ruff check` and `ruff format`
+target-version = "py315"  # rules and fixes assume Python 3.15
+line-length = 88  # formatter wraps at 88 (Black's default)
+
+[tool.ruff.lint]  # `ruff check` only
+# E = pycodestyle, F = Pyflakes, I = isort, B = flake8-bugbear
 select = ["E", "F", "I", "B"]
-ignore = ["E501"]
+ignore = ["E501"]  # line too long: the formatter handles line length
